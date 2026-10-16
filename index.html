@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guilherme Hartje | Consultoria de treino online</title>
+<meta name="description" content="Consultoria de treino online com acompanhamento individual. Fale direto com o personal trainer Guilherme Hartje.">
+<meta property="og:title" content="Consultoria de treino online com Guilherme Hartje">
+<meta property="og:description" content="Treino individual, ajustado à sua rotina e ao seu objetivo.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://personal-guilherme.vercel.app/">
+<meta property="og:image" content="https://personal-guilherme.vercel.app/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Guilherme Hartje, personal trainer, consultoria de treino online">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://personal-guilherme.vercel.app/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%232E5E3E'/%3E%3Ctext x='32' y='45' font-family='Arial' font-weight='700' font-size='38' text-anchor='middle' fill='%23E9EAE5'%3EG%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#E9EAE5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --parede: #E9EAE5;
+    --camiseta: #0C0C0C;
+    --folha: #2E5E3E;
+    --folha-escura: #1E3F2A;
+    --pele: #C98F6B;
+    --texto-suave: #4B4F4A;
+    --font: "Bricolage Grotesque", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--parede);
+    color: var(--camiseta);
+    font-family: var(--font);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--folha); outline-offset: 3px; }
+  .escuro :focus-visible { outline-color: var(--parede); }
+
+  .wrap { width: min(100% - 2.5rem, 70rem); margin-inline: auto; }
+
+  /* Botão */
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.6rem;
+    padding: .9rem 2rem;
+    background: var(--folha);
+    color: #fff;
+    font: 700 1.15rem/1.1 var(--font);
+    text-decoration: none;
+    border-radius: .3rem;
+    transition: background .15s ease, transform .15s ease;
+  }
+  .cta:hover { background: var(--folha-escura); }
+  .cta:active { transform: scale(.98); }
+  .escuro .cta { background: var(--parede); color: var(--camiseta); }
+  .escuro .cta:hover { background: #fff; }
+
+  .link-perfil { font-weight: 600; text-underline-offset: .25em; }
+
+  /* Hero */
+  .hero { padding: clamp(1.75rem, 5vw, 4rem) 0 clamp(3rem, 7vw, 5.5rem); }
+  .hero .wrap { display: grid; gap: 2.25rem; align-items: center; }
+  h1 {
+    margin: 0 0 1.5rem;
+    font-weight: 800;
+    font-stretch: 75%;
+    font-size: clamp(2.9rem, 11.5vw, 6.4rem);
+    line-height: .92;
+    letter-spacing: -.012em;
+  }
+  .hero .lead { max-width: 33rem; margin: 0 0 2rem; font-size: 1.2rem; }
+  .hero .acao { display: flex; flex-direction: column; align-items: flex-start; gap: .9rem; }
+  .hero .nota { font-size: .95rem; color: var(--texto-suave); max-width: 28rem; }
+
+  .fatos {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2.25rem 0 0;
+    padding: 0;
+    list-style: none;
+    font-weight: 600;
+    font-size: .98rem;
+  }
+  .fatos li { padding: .15rem 1rem .15rem 0; margin-right: 1rem; border-right: 2px solid rgba(12,12,12,.25); }
+  .fatos li:last-child { border-right: 0; margin-right: 0; padding-right: 0; }
+
+  .retrato { position: relative; margin: 0; max-width: 30rem; justify-self: center; width: 100%; }
+  .retrato::before {
+    content: "";
+    position: absolute;
+    inset: 1.1rem -1.1rem -1.1rem 1.1rem;
+    background: var(--folha);
+    border-radius: .3rem;
+  }
+  .retrato img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: 50% 20%;
+    border-radius: .3rem;
+    animation: revela 1s cubic-bezier(.2, .8, .2, 1) both;
+  }
+  @keyframes revela {
+    from { clip-path: inset(100% 0 0 0); }
+    to   { clip-path: inset(0 0 0 0); }
+  }
+
+  /* Seções */
+  section { padding: clamp(3.5rem, 9vw, 6.5rem) 0; }
+  h2 {
+    margin: 0 0 2.25rem;
+    max-width: 20ch;
+    font-weight: 800;
+    font-stretch: 78%;
+    font-size: clamp(2.1rem, 6.5vw, 3.7rem);
+    line-height: 1;
+    letter-spacing: -.01em;
+  }
+
+  /* Problema */
+  .problema { background: var(--camiseta); color: var(--parede); }
+  .problema h2 { color: var(--parede); }
+  .problema .linhas { display: grid; gap: 0; }
+  .problema .linha {
+    padding: 1.4rem 0;
+    border-top: 2px solid rgba(233,234,229,.22);
+    font-size: clamp(1.3rem, 3.8vw, 1.9rem);
+    font-weight: 600;
+    font-stretch: 85%;
+    line-height: 1.2;
+    max-width: 36ch;
+  }
+  .problema .linha:last-child { border-bottom: 2px solid rgba(233,234,229,.22); }
+  .problema .saida { margin: 2rem 0 0; max-width: 34rem; font-size: 1.15rem; color: var(--pele); font-weight: 600; }
+
+  /* Como funciona: é uma sequência, por isso numerada */
+  .passos { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.5rem; counter-reset: passo; }
+  .passos li { position: relative; padding-left: 4.5rem; counter-increment: passo; }
+  .passos li::before {
+    content: counter(passo);
+    position: absolute;
+    left: 0;
+    top: -.35rem;
+    width: 3.1rem;
+    height: 3.1rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--folha);
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.5rem;
+  }
+  .passos h3 { margin: 0 0 .35rem; font-size: 1.5rem; font-weight: 800; font-stretch: 85%; line-height: 1.1; }
+  .passos p { margin: 0; max-width: 36rem; }
+
+  /* Para quem é */
+  .perfil-ideal { background: #DDDED7; }
+  .duas { display: grid; gap: 2.5rem; }
+  .duas h3 { margin: 0 0 1rem; font-size: 1.5rem; font-weight: 800; font-stretch: 85%; }
+  .duas ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .85rem; }
+  .duas li { padding-left: 1.6rem; position: relative; max-width: 30rem; }
+  .duas li::before { content: ""; position: absolute; left: 0; top: .6em; width: .8rem; height: 3px; background: var(--folha); }
+  .duas .nao li::before { background: var(--camiseta); }
+
+  /* Sobre */
+  .sobre .wrap { display: grid; gap: 1.25rem; }
+  .sobre p { margin: 0; max-width: 38rem; font-size: 1.15rem; }
+  .sobre .nome { font-size: 1.8rem; font-weight: 800; font-stretch: 78%; line-height: 1.05; }
+
+  /* Perguntas */
+  .perguntas details { border-top: 2px solid rgba(12,12,12,.2); padding: 1.1rem 0; max-width: 44rem; }
+  .perguntas details:last-of-type { border-bottom: 2px solid rgba(12,12,12,.2); }
+  .perguntas summary {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.2rem;
+    font-stretch: 90%;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .perguntas summary::-webkit-details-marker { display: none; }
+  .perguntas summary::after { content: "+"; font-weight: 400; font-size: 1.6rem; line-height: 1; }
+  .perguntas details[open] summary::after { content: "\2212"; }
+  .perguntas details p { margin: .8rem 0 0; max-width: 38rem; }
+
+  /* Final */
+  .final { background: var(--folha); color: #fff; }
+  .final.escuro { background: var(--folha); }
+  .final h2 { color: #fff; max-width: 18ch; }
+  .final p { max-width: 32rem; margin: 0 0 2rem; font-size: 1.15rem; }
+  .final .cta { background: var(--parede); color: var(--camiseta); }
+  .final .cta:hover { background: #fff; }
+  .final .secundario { display: block; margin-top: 1.5rem; font-size: .98rem; }
+
+  footer { padding: 1.75rem 0 6rem; font-size: .9rem; color: var(--texto-suave); }
+
+  /* Barra fixa no celular */
+  .fixa {
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: .75rem 1.25rem calc(.75rem + env(safe-area-inset-bottom));
+    background: var(--camiseta);
+    color: var(--parede);
+    transform: translateY(110%);
+    transition: transform .25s ease;
+  }
+  .fixa.visivel { transform: translateY(0); }
+  .fixa b { font-weight: 700; font-size: 1rem; line-height: 1.2; }
+  .fixa .cta { min-height: 2.9rem; padding: .7rem 1.25rem; font-size: 1rem; flex: none; background: var(--parede); color: var(--camiseta); }
+
+
+  [hidden] { display: none !important; }
+
+  /* Botão secundário (seguir no Instagram) */
+  .cta-sec {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.1rem;
+    padding: .7rem 1.5rem;
+    border: 2px solid currentColor;
+    color: inherit;
+    font: 700 1rem/1.1 var(--font);
+    text-decoration: none;
+    border-radius: .3rem;
+    transition: background .15s ease, color .15s ease;
+  }
+  .cta-sec:hover { background: var(--camiseta); color: var(--parede); border-color: var(--camiseta); }
+  .final .cta-sec { margin-top: 1.25rem; }
+  .final .cta-sec:hover { background: var(--parede); color: var(--camiseta); border-color: var(--parede); }
+  .sobre .cta-sec { justify-self: start; margin-top: .5rem; }
+
+  /* O que está incluso */
+  .incluso { margin-top: 3.5rem; }
+  .incluso h3 { margin: 0 0 1rem; font-size: 1.5rem; font-weight: 800; font-stretch: 85%; line-height: 1.1; }
+  .incluso ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .85rem; }
+  .incluso li { padding-left: 1.6rem; position: relative; max-width: 34rem; }
+  .incluso li::before { content: ""; position: absolute; left: 0; top: .6em; width: .8rem; height: 3px; background: var(--folha); }
+
+  /* Resultados de alunos */
+  .prova { padding-top: 0; }
+  .prova .wrap { border-top: 2px solid rgba(12,12,12,.2); padding-top: clamp(3.5rem, 9vw, 6.5rem); }
+  .depoimentos { display: grid; gap: 2.5rem; }
+  .dep { margin: 0; }
+  .dep img { display: block; width: 100%; max-width: 22rem; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: .3rem; margin-bottom: 1rem; }
+  .dep blockquote { margin: 0 0 1rem; padding-left: 1.1rem; border-left: 4px solid var(--folha); font-size: 1.25rem; font-weight: 600; font-stretch: 90%; line-height: 1.35; max-width: 30rem; }
+  .dep figcaption { font-size: .98rem; color: var(--texto-suave); }
+  .dep figcaption b { color: var(--camiseta); }
+
+  .final .preco { font-weight: 700; font-size: 1.25rem; }
+  footer .aviso { display: block; margin-top: .5rem; }
+  @media (min-width: 52rem) {
+    .depoimentos { grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+    .incluso ul { grid-template-columns: 1fr 1fr; column-gap: 3rem; }
+  }
+
+  @media (min-width: 52rem) {
+    .hero .wrap { grid-template-columns: 1.15fr .85fr; gap: 4.5rem; }
+    .hero .acao { flex-direction: row; align-items: center; gap: 1.5rem; }
+    .problema .linhas { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .problema .linha { border-bottom: 0 !important; padding-right: 1rem; }
+    .problema .linha:last-child { border-bottom: 0; }
+    .passos { grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+    .passos li { padding-left: 0; padding-top: 4.25rem; }
+    .passos li::before { top: 0; }
+    .duas { grid-template-columns: 1fr 1fr; gap: 5rem; }
+    .fixa { display: none; }
+    footer { padding-bottom: 2rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .retrato img { animation: none; }
+    .cta, .fixa { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Consultoria de treino online, feita para o seu objetivo.</h1>
+      <p class="lead">Eu monto e ajusto o seu treino de acordo com a sua rotina, o seu nível e a sua meta. Você treina com direção e com alguém acompanhando de perto.</p>
+      <div class="acao">
+        <a class="cta" id="cta-principal" data-cta href="https://ig.me/m/guilhermehartje.fit" target="_blank" rel="noopener">Quero minha consultoria</a>
+        <span class="nota">Você fala direto comigo e eu explico como funciona.</span>
+      </div>
+      <ul class="fatos">
+        <li>Personal trainer</li>
+        <li>Formado em Educação Física</li>
+        <li>Especialista em biomecânica e cinesiologia do exercício</li>
+        <li>Atendimento online</li>
+        <li id="fato-cref" hidden></li>
+      </ul>
+    </div>
+
+    <figure class="retrato">
+      <img src="foto.jpg" alt="Guilherme Hartje, personal trainer, de boné e camiseta preta, com os braços cruzados" width="900" height="1200" fetchpriority="high" decoding="async">
+    </figure>
+  </div>
+</header>
+
+<main>
+  <section class="problema" id="problema">
+    <div class="wrap">
+      <h2>Treinar sem direção cansa e não leva a lugar nenhum</h2>
+      <div class="linhas">
+        <p class="linha">Você segue treino copiado da internet que não foi pensado para você.</p>
+        <p class="linha">Treina há meses e não sabe se está evoluindo de verdade.</p>
+        <p class="linha">Começa animado, perde o ritmo e recomeça do zero.</p>
+      </div>
+      <p class="saida">Com um treino individual e acompanhamento, cada semana tem um propósito.</p>
+    </div>
+  </section>
+
+  <section id="como-funciona">
+    <div class="wrap">
+      <h2>Como funciona a consultoria</h2>
+      <ol class="passos">
+        <li>
+          <h3>Conversa inicial</h3>
+          <p>Você me conta seu objetivo, sua rotina, seu histórico de treino e suas limitações. É aqui que eu entendo o que faz sentido para você.</p>
+        </li>
+        <li>
+          <h3>Plano individual</h3>
+          <p>Eu monto o seu treino com base nessa conversa, no seu nível e no tempo que você realmente tem para treinar.</p>
+        </li>
+        <li>
+          <h3>Acompanhamento e ajustes</h3>
+          <p>Conforme você evolui, o treino muda. Você não fica sozinho com uma planilha parada.</p>
+        </li>
+      </ol>
+      <div class="incluso" id="incluso" hidden>
+        <h3>O que está incluso</h3>
+        <ul id="incluso-lista"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="prova" id="resultados" hidden>
+    <div class="wrap">
+      <h2>O que dizem os alunos</h2>
+      <div class="depoimentos" id="depoimentos"></div>
+    </div>
+  </section>
+
+  <section class="perfil-ideal">
+    <div class="wrap">
+      <h2>Para quem a consultoria faz sentido</h2>
+      <div class="duas">
+        <div>
+          <h3>É para você se</h3>
+          <ul>
+            <li>Quer treinar com método e deixar de improvisar.</li>
+            <li>Está disposto a seguir o plano com constância.</li>
+            <li>Quer alguém que acompanhe e ajuste seu treino.</li>
+          </ul>
+        </div>
+        <div class="nao">
+          <h3>Não é para você se</h3>
+          <ul>
+            <li>Espera resultado sem esforço e sem rotina.</li>
+            <li>Busca promessa de mudança rápida e milagrosa.</li>
+            <li>Não quer seguir orientação.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sobre">
+    <div class="wrap">
+      <h2>Quem vai acompanhar você</h2>
+      <p class="nome">Guilherme Hartje</p>
+      <p>Sou personal trainer em Guaramirim, Santa Catarina, formado em Educação Física e especialista em biomecânica e cinesiologia do exercício. Trabalho com treino individualizado porque cada pessoa tem uma rotina, um corpo e um objetivo diferentes.</p>
+      <p>No Instagram eu compartilho treino, dicas e um pouco de humor de academia. <a class="link-perfil" href="https://www.instagram.com/guilhermehartje.fit/" target="_blank" rel="noopener" data-seguir>Veja o perfil @guilhermehartje.fit</a>.</p>
+      <p id="sobre-cref" hidden></p>
+      <a class="cta-sec" href="https://www.instagram.com/guilhermehartje.fit/" target="_blank" rel="noopener" data-seguir>Seguir @guilhermehartje.fit</a>
+    </div>
+  </section>
+
+  <section class="perguntas" id="perguntas">
+    <div class="wrap">
+      <h2>Perguntas frequentes</h2>
+      <details>
+        <summary>Como é o primeiro contato?</summary>
+        <p>Você me chama, conta seu objetivo e sua rotina, e eu explico como a consultoria funciona e se ela faz sentido para você.</p>
+      </details>
+      <details>
+        <summary>A consultoria é online?</summary>
+        <p>Sim. O atendimento e o acompanhamento são feitos online, então você pode estar em qualquer lugar.</p>
+      </details>
+      <details>
+        <summary>Serve para quem está começando?</summary>
+        <p>Sim. O treino é montado para o seu nível, e o ponto de partida é a conversa inicial. Se por algum motivo a consultoria não for o ideal para o seu caso, eu te digo com franqueza.</p>
+      </details>
+      <details>
+        <summary>Quanto custa?</summary>
+        <p id="faq-preco">Os valores dependem do plano e do seu objetivo. Me chame, conte o que você precisa e eu te passo as opções na conversa inicial.</p>
+      </details>
+      <details>
+        <summary>Como eu recebo o treino e os ajustes?</summary>
+        <p id="faq-formato">Depois da conversa inicial eu monto o seu plano e te envio pelo canal combinado. Conforme você evolui, eu ajusto o treino.</p>
+      </details>
+      <details>
+        <summary>Preciso treinar em academia?</summary>
+        <p>Não necessariamente. Eu monto o treino de acordo com o local e os equipamentos que você tem. Você me conta isso na conversa inicial.</p>
+      </details>
+      <details>
+        <summary>Em quanto tempo vou ver resultado?</summary>
+        <p>Depende do seu ponto de partida, do seu objetivo e, principalmente, da sua constância. Eu não prometo prazo mágico. Com treino ajustado e acompanhado, você sabe se está evoluindo semana a semana.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="final escuro" id="contato">
+    <div class="wrap">
+      <h2>Vamos montar o seu plano?</h2>
+      <p>Chame o Guilherme agora, conte seu objetivo e descubra como a consultoria pode funcionar para você.</p>
+      <p class="preco" id="preco-final" hidden></p>
+      <a class="cta" id="cta-final" data-cta href="https://ig.me/m/guilhermehartje.fit" target="_blank" rel="noopener">Quero minha consultoria</a>
+      <span class="secundario">Prefere conhecer antes? <a class="link-perfil" href="https://www.instagram.com/guilhermehartje.fit/" target="_blank" rel="noopener" data-seguir>Veja o perfil no Instagram</a>.</span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Guilherme Hartje, personal trainer em Guaramirim (SC).<span id="rodape-cref"></span><span class="aviso" id="aviso-medicao" hidden>Este site usa ferramentas de medição (Meta e Google) para entender o desempenho da divulgação. Não coletamos dados além do que essas ferramentas registram.</span></div>
+</footer>
+
+<div class="fixa" id="fixa" aria-hidden="true">
+  <b>Consultoria de treino online</b>
+  <a class="cta" data-cta href="https://ig.me/m/guilhermehartje.fit" target="_blank" rel="noopener" tabindex="-1">Quero minha consultoria</a>
+</div>
+
+<script>
+  /* =====================================================================
+     CONFIGURAÇÃO — é só preencher aqui. O que ficar vazio não aparece na página.
+     ===================================================================== */
+  var CONFIG = {
+    // WhatsApp com DDI e DDD, só números. Ex.: "5547999999999". Vazio = botões abrem o Direct do Instagram.
+    whatsapp: "5547997407058",
+    mensagem: "Oi, Guilherme! Vi sua página e quero saber mais sobre a consultoria de treino online.",
+
+    // Registro profissional. Ex.: "CREF 000000-G/SC"
+    cref: "",
+
+    // Valor ou faixa de preço. Ex.: "Planos a partir de R$ 000/mês."
+    preco: "",
+
+    // Como o aluno recebe treino e ajustes. Ex.: "Você recebe o treino no aplicativo e eu ajusto toda semana pelo WhatsApp."
+    formato: "O treino fica no meu aplicativo próprio, e eu ajusto o plano conforme você evolui.",
+
+    // O que está incluso. Ex.: ["Treino individual", "Ajustes conforme sua evolução", "Suporte pelo WhatsApp"]
+    incluso: [],
+
+    // Depoimentos reais, com autorização dos alunos. Ex.:
+    // [{ nome: "Ana", resultado: "Perdeu 6 kg em 3 meses", texto: "Pela primeira vez consegui manter a rotina.", foto: "fotos/ana.jpg" }]
+    // "resultado" e "foto" são opcionais.
+    depoimentos: [],
+
+    // Pixel da Meta (só números) e Google Analytics 4 (ex.: "G-XXXXXXXXXX")
+    pixelMeta: "",
+    ga4: ""
+  };
+
+  (function () {
+    var $ = function (id) { return document.getElementById(id); };
+    var ctas = document.querySelectorAll("[data-cta]");
+
+    // ---- Destino dos botões ----
+    if (CONFIG.whatsapp) {
+      var url = "https://wa.me/" + CONFIG.whatsapp.replace(/\D/g, "") + "?text=" + encodeURIComponent(CONFIG.mensagem);
+      ctas.forEach(function (a) { a.href = url; });
+    }
+
+    // ---- CREF ----
+    if (CONFIG.cref) {
+      var f = $("fato-cref"); f.textContent = CONFIG.cref; f.hidden = false;
+      var sc = $("sobre-cref"); sc.textContent = "Registro profissional: " + CONFIG.cref + "."; sc.hidden = false;
+      $("rodape-cref").textContent = " " + CONFIG.cref + ".";
+    }
+
+    // ---- Preço e formato ----
+    if (CONFIG.preco) {
+      $("faq-preco").textContent = CONFIG.preco + " Os detalhes e as formas de pagamento eu explico na conversa inicial.";
+      var pf = $("preco-final"); pf.textContent = CONFIG.preco; pf.hidden = false;
+    }
+    if (CONFIG.formato) $("faq-formato").textContent = CONFIG.formato;
+
+    // ---- O que está incluso ----
+    if (CONFIG.incluso.length) {
+      var ul = $("incluso-lista");
+      CONFIG.incluso.forEach(function (t) { var li = document.createElement("li"); li.textContent = t; ul.appendChild(li); });
+      $("incluso").hidden = false;
+    }
+
+    // ---- Depoimentos ----
+    if (CONFIG.depoimentos.length) {
+      var box = $("depoimentos");
+      CONFIG.depoimentos.forEach(function (d) {
+        var fig = document.createElement("figure"); fig.className = "dep";
+        if (d.foto) {
+          var img = document.createElement("img");
+          img.src = d.foto; img.alt = "Resultado de " + (d.nome || "aluno"); img.loading = "lazy";
+          fig.appendChild(img);
+        }
+        var bq = document.createElement("blockquote"); bq.textContent = d.texto || ""; fig.appendChild(bq);
+        var cap = document.createElement("figcaption");
+        var b = document.createElement("b"); b.textContent = d.nome || "Aluno"; cap.appendChild(b);
+        if (d.resultado) cap.appendChild(document.createTextNode(" · " + d.resultado));
+        fig.appendChild(cap);
+        box.appendChild(fig);
+      });
+      $("resultados").hidden = false;
+    }
+
+    // ---- Medição: Pixel da Meta e GA4 ----
+    var medindo = false;
+    if (/^\d{5,}$/.test(CONFIG.pixelMeta)) {
+      medindo = true;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq("init", CONFIG.pixelMeta);
+      fbq("track", "PageView");
+    }
+    if (/^G-[A-Za-z0-9]+$/.test(CONFIG.ga4)) {
+      medindo = true;
+      var g = document.createElement("script"); g.async = true;
+      g.src = "https://www.googletagmanager.com/gtag/js?id=" + CONFIG.ga4;
+      document.head.appendChild(g);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag("js", new Date()); gtag("config", CONFIG.ga4);
+    }
+    if (medindo) $("aviso-medicao").hidden = false;
+
+    // Clique no botão de consultoria = Lead. Clique em seguir = SeguirInstagram.
+    ctas.forEach(function (a) {
+      a.addEventListener("click", function () {
+        if (window.fbq) fbq("track", "Lead");
+        if (window.gtag) gtag("event", "generate_lead");
+      });
+    });
+    document.querySelectorAll("[data-seguir]").forEach(function (a) {
+      a.addEventListener("click", function () {
+        if (window.fbq) fbq("trackCustom", "SeguirInstagram");
+        if (window.gtag) gtag("event", "seguir_instagram");
+      });
+    });
+  })();
+
+  // Barra fixa no celular: aparece depois do botão principal e some quando o botão final entra na tela.
+  (function () {
+    var barra = document.getElementById("fixa");
+    var botao = barra.querySelector("a");
+    var principal = document.getElementById("cta-principal");
+    var final = document.getElementById("cta-final");
+    if (!("IntersectionObserver" in window)) return;
+
+    var principalVisivel = true, finalVisivel = false;
+    function atualiza() {
+      var mostrar = !principalVisivel && !finalVisivel;
+      barra.classList.toggle("visivel", mostrar);
+      barra.setAttribute("aria-hidden", mostrar ? "false" : "true");
+      botao.tabIndex = mostrar ? 0 : -1;
+    }
+    new IntersectionObserver(function (e) { principalVisivel = e[0].isIntersecting; atualiza(); }).observe(principal);
+    new IntersectionObserver(function (e) { finalVisivel = e[0].isIntersecting; atualiza(); }).observe(final);
+  })();
+</script>
+</body>
+</html>
